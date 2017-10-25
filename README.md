@@ -1,2 +1,2 @@
 # GIPHY-API
-Week 7 Homework
+Week 6 Homework
