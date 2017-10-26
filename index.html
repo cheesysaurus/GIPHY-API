@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Button Magic</title>
+
+<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+
+    <!-- Container for all buttons -->
+    <div id="buttons"></div>
+
+    <!-- Form for user to enter new topic -->
+    <form>
+        <div id="user-input">
+            <p>Enter a topic!</p>
+            <label>
+                <input type="text" id="user-topic" placeholder="fluffy kittens" /><br />
+            </label>
+
+            <label>
+                <input type="submit" id="submit" value="submit" />
+            </label>
+
+            <label>
+                <input type="reset" id="reset" value="reset topics" />
+            </label>
+
+        </div>
+    </form>
+
+    <!-- Button to clear out all GIFs -->
+    <button id="clear-gifs">clear GIFs</button>
+
+    <!-- Container for all GIFs -->
+    <div id="gifs"></div>
+
+
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- External JavaScript -->
+<script src="./assets/javascript/script.js"></script>
+
+</body>
+</html>
