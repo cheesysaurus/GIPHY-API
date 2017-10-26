@@ -9,10 +9,10 @@ var giphy = {
     // themes & topics for each theme
     themes: ["Food", "Fall", "Music", "Sundays", "Paradise", "User"],
     topics: [
-        ["cookies", "pizza", "donuts", "pumpkin pie"],
-        ["autumn", "cozy", "hot cocoa", "thanksgiving"],
+        ["cookies", "pizza", "donuts", "pancakes"],
+        ["autumn", "cozy", "hot cocoa", "leaves"],
         ["jazz", "guitar", "bluegrass", "metal", "opera"],
-        ["pajamas", "lazy", "relaxing", "pancakes"],
+        ["pajamas", "lazy", "relaxing", "couch potato"],
         ["hawaii", "sunset", "surf", "ocean"],
         []
     ],
