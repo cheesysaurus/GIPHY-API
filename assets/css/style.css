@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(114, 104, 93);
+    color: white;
+    font-family: 'Roboto Condensed';
+    font-weight: normal;
+}
+
+.container {
+    margin: 40px;
+    padding: 60px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+}
+
+#buttons-container {
+    margin-left: 0;
+    margin-right: -20px;
+    margin-bottom: 40px;
+    min-width: 32%;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+h2 {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.theme-div {
+    padding: 5px 2px;
+}
+
+#buttons {
+    margin: 10px 0 10px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.topic {
+    font-size: 13px;
+}
+
+.topic,
+#clear-gifs {
+    margin: 10px 5px 10px 0;
+}
+
+#user-form {
+    margin-top: -10px;
+    margin-bottom: -20px;
+}
+
+#user-buttons {
+    margin-top: 5px;
+}
+
+.all-buttons {
+    font-weight: normal;
+    background: #2fa89e;
+    color: white;
+    text-shadow: 1px 1px 1px grey;
+    box-shadow: 1px 1px 5px 0px rgb(63, 63, 63);
+    padding: 2px 13px;
+    border: none;
+    border-radius: 15px;
+}
+
+.all-buttons:hover {
+    background: #66ccc2;
+}
+
+.user-buttons {
+    background: rgb(23, 81, 146);
+}
+
+.user-buttons:hover {
+    background: rgb(34, 108, 187);
+}
+
+.form-buttons,
+#clear-gifs {
+    border-radius: 5px;
+    background: lightgrey;
+    color: black;
+    text-shadow: none;
+}
+
+.form-buttons:hover,
+#clear-gifs:hover {
+    background: rgb(180, 180, 180);
+}
+
+input[type=text] {
+    color: rgb(34, 108, 187);
+}
+
+input[placeholder] {
+    font-weight: normal;
+}
+
+#gif-instructions {
+    text-align: left;
+}
+
+#gifs {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 20px auto 40px;
+    margin-right: -150px;
+}
+
+.gif {
+    width: 200px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}

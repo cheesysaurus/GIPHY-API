@@ -4,38 +4,65 @@
 <meta charset="UTF-8">
 <title>Button Magic</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+
+<!-- Font Awesome -->
+<script src="https://use.fontawesome.com/66533346b7.js"></script>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<!-- Custom CSS -->
 <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
 
-    <!-- Container for all buttons -->
-    <div id="buttons"></div>
+    <div class="container row">
 
-    <!-- Form for user to enter new topic -->
-    <form>
-        <div id="user-input">
-            <p>Enter a topic!</p>
-            <label>
-                <input type="text" id="user-topic" placeholder="fluffy kittens" /><br />
-            </label>
+        <div id="buttons-container" class="col-md-3 col-md-offset-1">
+            <!-- Container for all buttons -->
+            <div id="themes">
+                <h2>Themes:</h2>
+                <div id="buttons"></div>
+            </div>
+        
+            <!-- Form for user to enter new topic -->
+            <form id="user-form">
+                <h3>Enter a topic!</h3>
+                <div id="user-input">
+                    <label>
+                        <input type="text" id="user-topic" placeholder="fluffy kittens" /><br />
+                    </label>
+                    
+                    <div id="user-buttons">
+                        <label>
+                            <input type="submit" id="submit" class="all-buttons form-buttons" value="create topic" />
+                        </label>
+            
+                        <label>
+                            <input type="reset" id="reset" class="all-buttons form-buttons" value="clear topics" />
+                        </label>
+                    </div>
+        
+                </div>
+            </form>
 
-            <label>
-                <input type="submit" id="submit" value="submit" />
-            </label>
+        </div> <!-- /.buttons-container -->
 
-            <label>
-                <input type="reset" id="reset" value="reset topics" />
-            </label>
+        <div id="gifs-container" class="col-md-6 col-md-offset-1">
 
-        </div>
-    </form>
+             <!-- Button to clear out all GIFs -->
+             <button id="clear-gifs" class="all-buttons">clear <span id="current-topic"></span> GIFs</button>
 
-    <!-- Button to clear out all GIFs -->
-    <button id="clear-gifs">clear GIFs</button>
+            <div id="gif-instructions"><i class="fa fa-angle-left"></i> Click on a topic (or enter your own) to see its GIFs!</div>
 
-    <!-- Container for all GIFs -->
-    <div id="gifs"></div>
+            <!-- Container for all GIFs -->
+            <div id="gifs"></div>
 
+        </div> <!-- /.gifs-container -->
+
+    </div> <!-- /.container -->
 
 <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

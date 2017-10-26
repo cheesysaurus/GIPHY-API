@@ -7,12 +7,13 @@ var giphy = {
     // VARIABLES
     // ====================================================================================
     // themes & topics for each theme
-    themes: ["Food", "Fall", "Lazy", "Paradise", "User"],
+    themes: ["Food", "Fall", "Music", "Sundays", "Paradise", "User"],
     topics: [
-        ["cookies", "pasta", "pizza", "ice cream", "donuts", "pumpkin pie"],
-        ["autumn", "cozy", "hot cocoa", "halloween", "thanksgiving"],
-        ["pajamas", "lazy", "sleepy"],
-        ["hawaii", "sunset", "surf"],
+        ["cookies", "pizza", "donuts", "pumpkin pie"],
+        ["autumn", "cozy", "hot cocoa", "thanksgiving"],
+        ["jazz", "guitar", "bluegrass", "metal", "opera"],
+        ["pajamas", "lazy", "relaxing", "pancakes"],
+        ["hawaii", "sunset", "surf", "ocean"],
         []
     ],
 
@@ -22,8 +23,9 @@ var giphy = {
     makeDivs: function() {
         for (var i = 0; i < giphy.themes.length; i++) {
             var div = $("<div>");
+            div.addClass("theme-div"); // add same class to each in order to target in CSS
             div.attr("id", giphy.themes[i]); // add an id to each div that is the name of its specific theme so that we can use this id to append the appropriate buttons to the appropriate div on line 44
-            $("#buttons").append(giphy.themes[i] + ": ");
+            $(div).html(giphy.themes[i] + ": <br />");
             $("#buttons").append(div);
         }
     },
@@ -35,15 +37,23 @@ var giphy = {
         $("#buttons").empty();
         giphy.makeDivs();
 
-        for (var i = 0; i < giphy.topics.length; i++) {
+        for (var i = 0; i < giphy.topics.length-1; i++) {
             for (var j = 0; j < giphy.topics[i].length; j++) {
                 var button = $("<button>");
-                button.addClass("topic"); // add same class to each of the buttons so that we can use this class to display the appropriate GIFs
-                button.attr("data-topic", giphy.topics[i][j]); // for good measure
+                button.addClass("topic all-buttons"); // add same class to each of the buttons so that we can use this class to display the appropriate GIFs
+                button.attr("data-topic", giphy.topics[i][j]);
                 button.text(giphy.topics[i][j]);
                 $("#" + giphy.themes[i]).append(button);
             }
+        }
 
+        // make separate buttons for the topics user creates (just so i can style separately in CSS)
+        for (var k = 0; k < giphy.topics[giphy.topics.length-1].length; k++) {
+            var button = $("<button>");
+            button.addClass("topic all-buttons user-buttons");
+            button.attr("data-topic", giphy.topics[giphy.topics.length-1][k]);
+            button.text(giphy.topics[giphy.topics.length-1][k]);
+            $("#" + giphy.themes[giphy.topics.length-1]).append(button);
         }
 
     },
@@ -67,6 +77,8 @@ var giphy = {
             // console insight
             // console.log(response);
 
+            $("#gif-instructions").html("<i class='fa fa-angle-down'></i> Click on a GIF to play or pause!");
+        
             // for each GIF object
             for (var i = 0; i < response.data.length; i++) {
 
@@ -93,6 +105,9 @@ var giphy = {
 
                 // prepend container to HTML
                 $("#gifs").prepend(container);
+
+                // insert current topic name into "clear GIFs" button so user can keep track of current selected topic
+                $("#current-topic").html(topic);
 
             }
 
@@ -137,7 +152,7 @@ var giphy = {
         console.log("New topic: " + newTopic);
 
         // push the new topic to the user array
-        giphy.topics[4].push(newTopic);
+        giphy.topics[giphy.topics.length-1].push(newTopic);
         console.log("User's topics: " + giphy.topics[4]);
 
         // refresh button div to include new button
@@ -152,7 +167,7 @@ var giphy = {
     clearUserTopics: function() {
 
         // clear out user array
-        giphy.topics[4] = [];
+        giphy.topics[giphy.topics.length-1] = [];
         console.log("User's topics: " + giphy.topics[4]);
 
         // refresh button div
@@ -165,6 +180,11 @@ var giphy = {
 // MAIN PROCESS
 // ====================================================================================
 $(window).on("load", function() {
+
+    // flash GIF instructions after 1 second
+    var windowTimeout = setTimeout(function(){
+        $("#gif-instructions").addClass("flash");
+    }, 1000);
 
     // render the buttons!
     giphy.makeButtons();
