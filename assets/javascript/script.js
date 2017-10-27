@@ -111,38 +111,52 @@ var giphy = {
 
             }
 
+            // toggle play/pause of GIF on mouse enter/leave
+            giphy.toggleGIF();
+
         });
+
     },
 
-    // toggle play/pause of GIF on click
+    // // toggle play/pause of GIF on click
+    // toggleGIF: function() {
+
+    //     // capture the current data state of the GIF
+    //     var state = $(this).attr("data-state");
+
+    //     // if the state is still
+    //     if (state === "still") {
+
+    //         // change the src of the GIF to the animated URL
+    //         $(this).attr("src", $(this).attr("data-animate"));
+
+    //         // change the state to animate
+    //         $(this).attr("data-state", "animate");
+
+    //     }
+
+    //     // if the state is animate
+    //     else {
+
+    //         // change the src of the GIF to the animated URL
+    //         $(this).attr("src", $(this).attr("data-still"));
+
+    //         // change the state to still
+    //         $(this).attr("data-state", "still");
+
+    //     }
+
+    // },
+
+    // toggle play/pause of GIF on mouse enter/leave
     toggleGIF: function() {
-
-        // capture the current data state of the GIF
-        var state = $(this).attr("data-state");
-
-        // if the state is still
-        if (state === "still") {
-
-            // change the src of the GIF to the animated URL
-            $(this).attr("src", $(this).attr("data-animate"));
-
-            // change the state to animate
-            $(this).attr("data-state", "animate");
-
-        }
-
-        // if the state is animate
-        else {
-
-            // change the src of the GIF to the animated URL
-            $(this).attr("src", $(this).attr("data-still"));
-
-            // change the state to still
-            $(this).attr("data-state", "still");
-
-        }
-
-    },
+        $(".gif").on("mouseenter", function() {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                });
+                $(".gif").on("mouseleave", function() {
+                    $(this).attr("src", $(this).attr("data-still"));
+                });
+            },
 
     // when a user enters a topic
     renderUserTopic: function() {
@@ -193,7 +207,7 @@ $(window).on("load", function() {
     $(document).on("click", ".topic", giphy.displayGIFs);
 
     // when any GIF is clicked, toggle whether it is playing or paused
-    $(document).on("click", ".gif", giphy.toggleGIF);
+    // $(document).on("click", ".gif", giphy.toggleGIF);
 
     // when user clicks submit
     $("#submit").on("click", function(e) {
