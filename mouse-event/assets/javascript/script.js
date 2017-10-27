@@ -77,7 +77,7 @@ var giphy = {
             // console insight
             // console.log(response);
 
-            $("#gif-instructions").html("<i class='fa fa-angle-down'></i> Click on a GIF to play or pause!");
+            $("#gif-instructions").html("<i class='fa fa-angle-down'></i> Mouse over a GIF to play it!");
         
             // for each GIF object
             for (var i = 0; i < response.data.length; i++) {
